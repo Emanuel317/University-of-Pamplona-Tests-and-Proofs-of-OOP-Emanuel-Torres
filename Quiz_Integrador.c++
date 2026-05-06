@@ -15,7 +15,7 @@ class Product {
             return barCode;
         }
 
-        string getBarCode (string barCode) {
+        void const getBarCode (string barCode) {
             std::cout << &barCode << std::endl;
         }
 
@@ -29,7 +29,7 @@ class Product {
             return name;
         }
 
-        string getProductName (string name) {
+        void getProductName (string name) {
             std::cout << &name << std::endl;
         }
 
@@ -37,7 +37,7 @@ class Product {
             return price;
         }
 
-        float getProductPrice (float price) {
+        void const getProductPrice (float price) {
             std::cout << &price << std::endl;
         }
 
@@ -45,12 +45,8 @@ class Product {
             return amount;
         }
 
-        int getProductAmount (int amount) {
+        void const getProductAmount (int amount) {
             std::cout << &amount << std::endl;
-        }
-
-        float TotalProductPrice () {
-            float calculateDiscount (float price, int amount);
         }
 };
 
@@ -78,8 +74,13 @@ class Discount : public Product {
                 discountedPrice = price;
             }
         
-        return discountedPrice;
         }
+        return discountedPrice;
+    }
+
+    float calculateTotalProductPrice (float discountedPrice) {
+            float totalPrice = discountedPrice;
+            return totalPrice;
     }
 
 };
@@ -87,12 +88,29 @@ class Discount : public Product {
 
 int main () {
 
-    Product harinapan;
-    string Productname;
-    std::cin >> Productname;
+    int i = 1;
+    
+    while (i) {
+        Product createdProduct;
 
+        std::cout << "Indique el nombre del " << i << " producto: ";
+        string productName;
+        std::cin >> productName;
 
-    std::cout << harinapan.setProductName(Productname) << std::endl;
+        std::cout << "Indique el precio del " << i << " producto: ";
+        float productPrice;
+        std::cin >> productPrice;
+
+        std::cout << "Indique la cantidad del " << i << " producto: ";
+        float productAmount;
+        std::cin >> productAmount;
+
+        i++;
+
+        std::cout << createdProduct.setProductName(productName) << std::endl;
+        std::cout << createdProduct.setProductPrice(productPrice) << std::endl;
+        std::cout << createdProduct.setProductAmount(productAmount) << std::endl;
+    }
 
     return 0;
 }
