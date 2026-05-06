@@ -50,11 +50,35 @@ class Product {
         }
 };
 
+/*
 
+*/
 
+class Discount : public Product {
+    //Público
+    public:
 
+    float calculateDiscount (float price, int amount) {
+        float discount;
+        float discountedPrice;
 
+        if (amount > 10) {
+            if (price > 150) {
+                discount = price * 0.10;
+                discountedPrice = price - discount;
+            
+            } else if (price > 75) {
+                discount = price * 0.05;
+                discountedPrice = price - discount;
+            } else {
+                discountedPrice = price;
+            }
+        
+        return discountedPrice;
+        }
+    }
 
+};
 
 
 int main () {
