@@ -48,6 +48,10 @@ class Product {
         int getProductAmount (int amount) {
             std::cout << &amount << std::endl;
         }
+
+        float TotalProductPrice () {
+            float calculateDiscount (float price, int amount);
+        }
 };
 
 /*
@@ -84,8 +88,11 @@ class Discount : public Product {
 int main () {
 
     Product harinapan;
-    
-    std::cout << std::endl;
+    string Productname;
+    std::cin >> Productname;
+
+
+    std::cout << harinapan.setProductName(Productname) << std::endl;
 
     return 0;
 }
